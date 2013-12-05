@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><serviceGroup name="org.wso2.carbon.discovery.proxy" successfullyAdded="true">
+    <service name="DiscoveryProxy" serviceDocumentation="DiscoveryProxy" exposedAllTransports="false" serviceDeployedTime="1381293028578" successfullyAdded="true">
+        <operation name="Resolve">
+            <module name="addressing" version="4.0" type="engagedModules"/>
+        </operation>
+        <operation name="Hello">
+            <module name="addressing" version="4.0" type="engagedModules"/>
+        </operation>
+        <operation name="Probe">
+            <module name="addressing" version="4.0" type="engagedModules"/>
+        </operation>
+        <operation name="Bye">
+            <module name="addressing" version="4.0" type="engagedModules"/>
+        </operation>
+        <bindings>
+            <binding name="DiscoveryProxySoap11Binding">
+                <operation name="Resolve"/>
+                <operation name="Hello"/>
+                <operation name="Probe"/>
+                <operation name="Bye"/>
+            </binding>
+            <binding name="DiscoveryProxyHttpBinding">
+                <operation name="Resolve"/>
+                <operation name="Hello"/>
+                <operation name="Probe"/>
+                <operation name="Bye"/>
+            </binding>
+            <binding name="DiscoveryProxySoap12Binding">
+                <operation name="Resolve"/>
+                <operation name="Hello"/>
+                <operation name="Probe"/>
+                <operation name="Bye"/>
+            </binding>
+        </bindings>
+        <policies/>
+        <module name="addressing" version="4.0" type="engagedModules"/>
+        <parameter locked="false" name="ServiceClass">org.wso2.carbon.discovery.proxy.DiscoveryProxy</parameter>
+        <association destinationPath="/repository/transports/https/listener" type="exposedTransports"/>
+    </service>
+</serviceGroup>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.axis2.wso2:axis2-client:1.6.1.wso2v7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libs/axis2_1.6.1-wso2v7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,104 @@
+package sample;
+
+import thrift.CoordinationContext;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: chaamini
+ * Date: 8/15/13
+ * Time: 3:32 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public class TravelApp {
+
+    public void initialize (final Customer customer){
+
+           new Thread(new Runnable(){
+
+               @Override
+               public void run() {
+                   //To change body of implemented methods use File | Settings | File Templates.
+                  System.out.println(customer.name) ;
+                  System.out.println(customer.date);
+                  System.out.println(customer.destinationFrom);
+                  System.out.println(customer.destinationTo);
+
+
+                  TravelAppClient applicationClient = new TravelAppClient(Constants.coordinatorServerAddress, Constants.coordinatorServerPortNumber);
+                  CoordinationContext coordinationContext = applicationClient.createCoordinationContext("AtomicTransaction", null, 0);
+
+                   if(coordinationContext != null){
+                       System.out.println("Coordination context successfully created");
+
+                       HotelClient hotelClient = new HotelClient(Constants.hotelServerAddress, Constants.hotelServerPortNumber);
+                       boolean isHotelSuccess = hotelClient.putHotel(coordinationContext, customer.getName(), customer.getDate(), Integer.parseInt(customer.getStayInHotel()));
+
+                       TravelClient travelClient = new TravelClient(Constants.travelServerAddress, Constants.travelServerPortNumber);
+                       boolean isTravelSuccess = travelClient.putTravel(coordinationContext, customer.getName(), customer.getDestinationFrom(), customer.getDestinationTo(), customer.getDate());
+
+
+                       if(isTravelSuccess $$ isHotelSuccess)
+                           applicationClient.commit(coordinationContext.getIdentifier());
+
+                   }
+
+
+
+//                   PutDispatcherService putDispatcherService = null;
+//                   try {
+//                       putDispatcherService = new PutDispatcherService(new URL("http://localhost:8008/"));
+//                   } catch (MalformedURLException e) {
+//                       e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+//                   }
+//                   PutDispatcherPortType putDispatcherPortType = putDispatcherService.getPutDispatcher();
+//
+//                   Put put = new Put();
+//                   put.setCoordinationType("AtomicTransaction");
+//                   put.setCoordinatorPort(coordinationContext.getRegistrationEPR().getPrivateInstance());
+//                   put.setCoordinatorUrl(coordinationContext.getRegistrationEPR().getAddress());
+//                   put.setDate(customer.getDate());
+//                   put.setDestinationFrom(customer.getDestinationFrom());
+//                   put.setDestinationTo(customer.getDestinationTo());
+//                   put.setExpires(coordinationContext.getExpires());
+//                   put.setHotelName(customer.getHotelName());
+//                   put.setIdentifier(coordinationContext.getIdentifier());
+//                   put.setStayHotel(Integer.parseInt(customer.getStayInHotel()));
+//                   put.setName(customer.getName());
+//
+//                   PutResponse putResponse = putDispatcherPortType.put(put);
+//
+//
+//                   PutDispatcherService putDispatcherService1 = null;
+//                   try {
+//                       putDispatcherService1 = new PutDispatcherService(new URL("http://localhost:8009/"));
+//                   } catch (MalformedURLException e) {
+//                       e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+//                   }
+//                   PutDispatcherPortType putDispatcherPortType1 = putDispatcherService1.getPutDispatcher();
+//
+//                   Put put1 = new Put();
+//                   put1.setCoordinationType("AtomicTransaction");
+//                   put1.setCoordinatorPort(coordinationContext.getRegistrationEPR().getPrivateInstance());
+//                   put1.setCoordinatorUrl(coordinationContext.getRegistrationEPR().getAddress());
+//                   put1.setDate(customer.getDate());
+//                   put1.setDestinationFrom(customer.getDestinationFrom());
+//                   put1.setDestinationTo(customer.getDestinationTo());
+//                   put1.setExpires(coordinationContext.getExpires());
+//                   put1.setHotelName(customer.getHotelName());
+//                   put1.setIdentifier(coordinationContext.getIdentifier());
+//                   put1.setStayHotel(Integer.parseInt(customer.getStayInHotel()));
+//                   put1.setName(customer.getName());
+//
+//                   PutResponse putResponse1 = putDispatcherPortType1.put(put1);
+//
+////                   if(putResponse.isPutResult()) {
+//                       System.out.println(putResponse.isPutResult());
+//                       applicationClient.commit(coordinationContext.getIdentifier());
+////                   }
+
+               }
+
+           }).start();
+
+    }
+}

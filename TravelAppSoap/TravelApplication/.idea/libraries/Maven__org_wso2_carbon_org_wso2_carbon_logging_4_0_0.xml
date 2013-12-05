@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: org.wso2.carbon:org.wso2.carbon.logging:4.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libs/org.wso2.carbon.logging_4.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

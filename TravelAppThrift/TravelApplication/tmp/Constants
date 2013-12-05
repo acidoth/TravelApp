@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+
+<Addresses>
+
+    <Coordinator>
+        <address>127.0.0.1</address>
+        <activationport>9090</activationport>
+        <completionport>9092</completionport>
+    </Coordinator>
+
+    <Participant>
+        <putaddress1>https://127.0.0.1:9443/services/</putaddress1>
+        <putaddress2>https://127.0.0.1:9444/services/</putaddress2>
+    </Participant>
+</Addresses>
+
+

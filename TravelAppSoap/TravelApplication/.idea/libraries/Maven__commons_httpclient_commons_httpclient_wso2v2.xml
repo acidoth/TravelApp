@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: commons-httpclient:commons-httpclient:wso2v2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libs/commons-httpclient_3.1.0.wso2v2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

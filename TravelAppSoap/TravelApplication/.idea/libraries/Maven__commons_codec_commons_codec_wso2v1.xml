@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: commons-codec:commons-codec:wso2v1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libs/commons-codec_1.4.0.wso2v1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

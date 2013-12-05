@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Addresses>
+
+    <Coordinator>
+        <activationaddress>http://10.42.0.1:8081/ActivationService?wsdl</activationaddress>
+        <completionaddress>http://10.42.0.1:8082/CompletionService?wsdl</completionaddress>
+    </Coordinator>
+
+    <participant>
+        <putaddress1>https://10.42.0.81:9443/services/</putaddress1>
+        <putaddress2>https://10.42.0.81:9444/services/</putaddress2>
+    </participant>
+
+</Addresses>

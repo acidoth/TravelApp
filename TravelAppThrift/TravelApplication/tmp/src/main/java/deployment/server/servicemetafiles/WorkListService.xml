@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><serviceGroup name="WorkListService" successfullyAdded="true">
+    <parameter name="preserveServiceHistory">true</parameter>
+    <service name="WorkListService" serviceDocumentation="&#10;        Humatask for Work List in WSO2 Carbon&#10;    " exposedAllTransports="false" serviceDeployedTime="1381293028017" successfullyAdded="true">
+        <operation name="addTask">
+            <module name="addressing" version="4.0" type="engagedModules"/>
+        </operation>
+        <bindings>
+            <binding name="WorkListSoapBinding">
+                <operation name="addTask"/>
+            </binding>
+        </bindings>
+        <policies/>
+        <module name="addressing" version="4.0" type="engagedModules"/>
+        <parameter name="serviceType">humantask</parameter>
+        <parameter name="interface">WorkListPT</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <parameter name="preserveServiceHistory">true</parameter>
+        <association destinationPath="/repository/transports/https/listener" type="exposedTransports"/>
+        <association destinationPath="/repository/transports/http/listener" type="exposedTransports"/>
+    </service>
+</serviceGroup>

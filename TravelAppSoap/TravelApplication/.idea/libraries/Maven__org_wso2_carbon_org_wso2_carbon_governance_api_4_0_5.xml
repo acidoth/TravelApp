@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: org.wso2.carbon:org.wso2.carbon.governance.api:4.0.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libs/org.wso2.carbon.governance.api_4.0.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

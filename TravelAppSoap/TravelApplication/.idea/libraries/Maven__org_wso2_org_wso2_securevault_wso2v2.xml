@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: org.wso2:org.wso2.securevault:wso2v2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libs/org.wso2.securevault_1.0.0.wso2v2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
